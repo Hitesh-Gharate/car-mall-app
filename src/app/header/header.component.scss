@@ -1,0 +1,31 @@
+
+ .navbar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+  }
+  
+  .navbar a {
+    float: left;
+    padding: 12px;
+    box-sizing: border-box;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 33.33%; /* Four links of equal widths */
+    text-align: center;
+    border: 1px solid #868686;
+    background: #000;
+    &.disabled {
+        //pointer-events: none;
+        cursor: not-allowed;
+     }
+  }
+  
+  .navbar a:hover {
+    background-color: #000;
+  }
+  
+  .navbar a.active {
+    background-color: #515050;
+  }

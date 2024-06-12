@@ -1,0 +1,33 @@
+<h2>Step1 : Select your config and options</h2>
+<div class="model-selection">
+    <div class="step-one-form">
+        <form [formGroup]="stepTwoForm">
+            <div class="model-config-dropdown field-set">
+                <label for="configSelect">Config</label>
+                @if (carConfig?.configs?.length){  
+                <select name="carOption" id="configSelect" formControlName="carOption" (change)="onSelectConfig()">
+                    @for(model of carConfig?.configs; track model?.id){
+                    <option [value]="model?.id">{{model?.description}}</option>       
+                     }                    
+                </select>
+                }
+            </div>
+            @if(selectedOption){
+                <div class="model-range-speed field-set">
+                    <label for="model-range">Range: {{selectedOption.range}} miles - Max Speed : {{selectedOption.speed}} - Cost: {{selectedOption.price}}</label>
+                </div>            }
+            @if(carConfig?.towHitch){
+            <div class="model-tow-hitch field-set">
+                <label for="includeTow">Tow Hitch?</label>
+                <input type="checkbox" formControlName="towHitch" id="includeTow" />
+            </div>
+            }
+            @if(carConfig?.yoke){
+            <div class="model-tow-hitch field-set">
+                <label for="includeYoke">Yoke Steering wheel?</label>
+                <input type="checkbox" formControlName="yoke" id="includeYoke" />
+            </div>    
+            }
+        </form>
+    </div>
+</div>

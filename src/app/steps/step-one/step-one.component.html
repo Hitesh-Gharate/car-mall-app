@@ -1,0 +1,30 @@
+<h2>Step1 : Choose your model and color</h2>
+<div class="model-selection">
+    <div class="step-one-form">
+        <form [formGroup]="stepOneForm">
+            <div class="display-flex">
+                <div class="model-select-dropdown">
+                    <label for="modelSelect">Choose a Model</label>
+                    <select name="modelSelect" id="modelSelect" formControlName="modelSelect" (change)="onSelectModel()">
+                        @if (allCarModelList.length){                     
+                            <option value="">--Choose an option--</option>
+                            @for(model of allCarModelList; track model?.code){
+                            <option [value]="model?.code">{{model?.description}}</option>       
+                            } 
+                        }
+                    </select>
+                </div>
+                @if (selectedmodel?.colors?.length){ 
+                <div class="model-color-dropdown">
+                    <label for="colorSelect">Choose a Color</label>
+                    <select name="colorSelect" id="colorSelect" formControlName="colorSelect" (change)="onColorChange()">
+                            @for(modelColor of selectedmodel?.colors; track modelColor?.code){
+                            <option [value]="modelColor?.code">{{modelColor?.description}}</option>       
+                            }                         
+                    </select>
+                </div>  
+                }    
+            </div>     
+        </form>
+    </div>
+</div>

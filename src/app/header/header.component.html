@@ -1,0 +1,6 @@
+<h1>Car Mall</h1>
+<div class="navbar">
+  <a routerLink="step-first" routerLinkActive="active" ariaCurrentWhenActive="page" id="step1">Step 1</a>
+  <a routerLink="step-two" routerLinkActive="active"  [ngClass]="!(_sharedService.isStepOneValid())? 'disabled': ''" ariaCurrentWhenActive="page"id="step2">Step 2</a>
+  <a routerLink="step-three" routerLinkActive="active" [ngClass]="!(_sharedService.isStepTwoValid())? 'disabled': ''" ariaCurrentWhenActive="page" id="step3">Step 3</a>
+</div>
